@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>完整人臉註冊與辨識系統</title>
+  <style>
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #video {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <h2>👤 人臉註冊與辨識系統</h2>
+
+  <video id="video" width="720" height="560" autoplay muted></video><br>
+  <input type="text" id="nameInput" placeholder="輸入姓名註冊 Webcam 臉部樣本">
+  <button onclick="registerFace()">📸 Webcam 註冊</button><br><br>
+
+  <h3>📂 上傳圖片訓練樣本</h3>
+  <input type="file" accept="image/*" onchange="handleImageUpload(event)">
+  <input type="text" id="uploadName" placeholder="輸入照片中人名">
+  <p id="uploadStatus">尚未上傳圖片</p>
+
+  <h3>💾 匯出 / 載入 樣本資料</h3>
+  <button onclick="downloadData()">📥 匯出樣本資料</button>
+  <input type="file" accept=".json" onchange="loadData(event)">
+
+  <p id="status">狀態：等待註冊或載入資料</p>
+  <script src="./fr.js" type="module"></script>
+</body>
+</html>
